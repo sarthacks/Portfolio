@@ -1,4 +1,4 @@
-<script>
+
 /* ── PARTICLE CANVAS ── */
 (function(){
   const canvas=document.getElementById('bgCanvas');
@@ -170,4 +170,3 @@ document.querySelectorAll('.proj-c,.cert-c,.skill-c').forEach(card=>{
     card.style.transition='transform .4s ease';
   });
 });
-</script>

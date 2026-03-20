@@ -1,4 +1,4 @@
-<style>
+
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --accent:#00ff88;--accent2:#00c8ff;--accent3:#ff6b35;
@@ -284,4 +284,3 @@ footer em{color:var(--accent);font-style:normal;font-weight:700}
   .proj-btn{justify-content:center}
   .exp-cert-btn{width:100%;justify-content:center}
 }
-</style>
