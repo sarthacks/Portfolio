@@ -4,131 +4,21 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Sarthak Deshmukh — Python & Full Stack Developer</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
-<!-- EmailJS SDK -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--accent:#22c55e;--accent-dim:rgba(34,197,94,.15);--accent-border:rgba(34,197,94,.35);--blue:#3b82f6;--radius:14px;--nav-h:64px;--ease:.3s cubic-bezier(.4,0,.2,1)}
-[data-theme="dark"]{--bg:#0a0b0f;--bg2:#111318;--bg3:#181b22;--border:rgba(255,255,255,.07);--text:#f0f1f5;--text2:#7c8299;--card:#111318;--glow:rgba(34,197,94,.2)}
-[data-theme="light"]{--bg:#f8f9fc;--bg2:#ffffff;--bg3:#eef0f7;--border:rgba(0,0,0,.08);--text:#0f1117;--text2:#6b7280;--card:#ffffff;--glow:rgba(34,197,94,.15)}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden;transition:background var(--ease),color var(--ease)}
-a{color:var(--accent);text-decoration:none}a:hover{opacity:.8}
-::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--accent);border-radius:9px}
-#progress{position:fixed;top:0;left:0;height:2px;z-index:999;background:linear-gradient(90deg,var(--accent),var(--blue));width:0%;transition:width .1s linear}
-nav{position:fixed;top:0;left:0;right:0;z-index:200;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1.2rem,5vw,4rem);background:var(--bg);border-bottom:1px solid var(--border);transition:background var(--ease)}
-.logo{font-weight:800;font-size:1.15rem;color:var(--text);letter-spacing:-.5px}.logo em{color:var(--accent);font-style:normal}
-.nav-links{display:flex;gap:1.8rem;list-style:none}.nav-links a{color:var(--text2);font-size:.85rem;font-weight:500;letter-spacing:.2px;transition:color var(--ease)}.nav-links a:hover,.nav-links a.active{color:var(--accent)}
-.nav-right{display:flex;align-items:center;gap:.9rem}
-.toggle{width:40px;height:22px;border-radius:99px;border:1.5px solid var(--border);background:var(--bg3);cursor:pointer;position:relative;transition:background var(--ease);flex-shrink:0}.toggle::after{content:'';position:absolute;top:2px;left:2px;width:15px;height:15px;border-radius:50%;background:var(--accent);transition:transform var(--ease)}[data-theme="light"] .toggle::after{transform:translateX(18px)}
-.btn-hire{padding:.4rem 1.1rem;border-radius:8px;background:var(--accent);color:#000;font-weight:700;font-size:.8rem;border:none;cursor:pointer;transition:opacity .2s,transform .2s;letter-spacing:.3px}.btn-hire:hover{opacity:.88;transform:translateY(-1px)}
-.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;background:none;border:none}.hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:var(--ease)}
-.mobile-nav{display:none;position:fixed;inset:var(--nav-h) 0 0 0;background:var(--bg);z-index:199;padding:2rem;flex-direction:column;gap:1.4rem;border-top:1px solid var(--border)}.mobile-nav.open{display:flex}.mobile-nav a{color:var(--text);font-size:1.1rem;font-weight:600}
-#hero{min-height:100svh;display:flex;align-items:center;padding:calc(var(--nav-h)+4rem) clamp(1.2rem,5vw,4rem) 4rem;max-width:1180px;margin:0 auto;gap:4rem;flex-wrap:wrap}
-.hero-left{flex:1 1 340px}
-.badge{display:inline-flex;align-items:center;gap:.5rem;padding:.3rem .9rem;border-radius:99px;border:1px solid var(--accent-border);color:var(--accent);font-size:.72rem;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:1.6rem;animation:fadeUp .5s ease both}
-.badge .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 1.6s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
-.hero-name{font-size:clamp(2.6rem,6.5vw,4.4rem);font-weight:800;letter-spacing:-2.5px;line-height:1.0;margin-bottom:1rem;animation:fadeUp .55s .08s ease both}.hero-name .green{color:var(--accent)}
-.hero-role{font-size:1rem;color:var(--text2);font-weight:400;margin-bottom:2rem;min-height:1.5rem;animation:fadeUp .55s .15s ease both}
-.cursor-blink{display:inline-block;width:2px;height:1em;background:var(--accent);margin-left:2px;vertical-align:middle;animation:blink .7s steps(1) infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
-.hero-btns{display:flex;gap:.8rem;flex-wrap:wrap;animation:fadeUp .55s .22s ease both}
-.btn-main{padding:.7rem 1.7rem;border-radius:8px;background:var(--accent);color:#000;font-weight:700;font-size:.9rem;border:none;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 0 20px var(--glow)}.btn-main:hover{transform:translateY(-2px);box-shadow:0 6px 28px var(--glow)}
-.btn-ghost{padding:.7rem 1.7rem;border-radius:8px;background:transparent;color:var(--text);font-weight:600;font-size:.9rem;border:1.5px solid var(--border);cursor:pointer;transition:border-color .2s,color .2s}.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
-.hero-stats{display:flex;gap:2.5rem;margin-top:2.8rem;flex-wrap:wrap;animation:fadeUp .55s .3s ease both}
-.stat-n{font-size:1.7rem;font-weight:800;color:var(--accent);letter-spacing:-1px}.stat-l{font-size:.72rem;color:var(--text2);font-weight:500;letter-spacing:.5px;margin-top:.1rem}
-.hero-right{flex:0 0 auto;display:flex;justify-content:center;animation:fadeUp .6s .15s ease both}
-.photo-wrap{position:relative;width:clamp(220px,28vw,300px)}
-.photo-frame{width:100%;aspect-ratio:3/4;border-radius:20px;overflow:hidden;border:1px solid var(--border);box-shadow:0 20px 60px rgba(0,0,0,.35);position:relative}
-.photo-frame img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
-.photo-overlay{position:absolute;bottom:0;left:0;right:0;padding:1.4rem 1.2rem 1.2rem;background:linear-gradient(to top,rgba(0,0,0,.85) 0%,transparent 100%)}
-.photo-overlay .ov-name{color:#fff;font-weight:700;font-size:.95rem}.photo-overlay .ov-loc{color:rgba(255,255,255,.6);font-size:.75rem;margin-top:.2rem}
-.photo-badge{position:absolute;top:-10px;right:-120px;padding:.35rem .8rem;border-radius:99px;background:var(--accent);color:#000;font-size:.7rem;font-weight:700;letter-spacing:.5px;box-shadow:0 4px 16px var(--glow)}
-.sec{position:relative;z-index:1;padding:clamp(3.5rem,8vh,6rem) clamp(1.2rem,5vw,4rem);max-width:1180px;margin:0 auto}
-.divider{height:1px;background:var(--border);max-width:1180px;margin:0 auto}
-.sec-eyebrow{font-size:.68rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem;display:block}
-.sec-h{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;letter-spacing:-1px;margin-bottom:.7rem}
-.sec-bar{width:36px;height:3px;background:var(--accent);border-radius:2px;margin-bottom:2.5rem}
-.sec-sub{color:var(--text2);font-size:.95rem;max-width:520px;margin-bottom:2.5rem}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
-@media(max-width:600px){.about-grid{grid-template-columns:1fr}}
-.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;transition:border-color .25s,transform .2s,box-shadow .2s}.card:hover{border-color:var(--accent-border);transform:translateY(-3px);box-shadow:0 10px 32px var(--glow)}
-.card-head{font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
-.info-row{display:flex;justify-content:space-between;align-items:center;padding:.4rem 0;border-bottom:1px solid var(--border);font-size:.85rem}.info-row:last-of-type{border-bottom:none}.info-row span:first-child{color:var(--text2);font-weight:400}.info-row span:last-child{font-weight:500;text-align:right}
-.pills{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.8rem}.pill{padding:.35rem .85rem;border-radius:99px;background:var(--bg3);border:1px solid var(--border);font-size:.78rem;color:var(--text2);font-weight:500;transition:all .18s}.pill:hover{background:var(--accent-dim);color:var(--accent);border-color:var(--accent-border)}
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.1rem}
-.skill-c{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.4rem;position:relative;overflow:hidden;transition:border-color .25s,transform .22s,box-shadow .22s}.skill-c::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--blue));opacity:0;transition:opacity .25s}.skill-c:hover{border-color:var(--accent-border);transform:translateY(-3px);box-shadow:0 8px 28px var(--glow)}.skill-c:hover::after{opacity:1}
-.skill-ico{font-size:1.4rem;margin-bottom:.7rem}.skill-c h4{font-size:.88rem;font-weight:700;margin-bottom:.6rem}
-.tags{display:flex;flex-wrap:wrap;gap:.35rem}.tag{padding:.18rem .6rem;border-radius:6px;background:var(--bg3);font-size:.72rem;color:var(--text2);border:1px solid var(--border)}.tag.g{background:var(--accent-dim);color:var(--accent);border-color:var(--accent-border)}
-.timeline{position:relative;padding-left:1.8rem}.timeline::before{content:'';position:absolute;left:3px;top:8px;bottom:8px;width:1.5px;background:linear-gradient(to bottom,var(--accent),var(--blue),transparent)}
-.tl-item{position:relative;margin-bottom:2.5rem}.tl-item::before{content:'';position:absolute;left:-1.55rem;top:7px;width:9px;height:9px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);box-shadow:0 0 0 3px var(--accent-dim)}
-.exp-c{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem 1.7rem;transition:border-color .25s,box-shadow .22s}.exp-c:hover{border-color:var(--accent-border);box-shadow:0 6px 24px var(--glow)}
-.exp-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.5rem;margin-bottom:.9rem}
-.exp-role{font-size:1rem;font-weight:700}.exp-co{color:var(--accent);font-size:.85rem;font-weight:600;margin-top:.2rem}
-.exp-date{font-size:.7rem;color:var(--text2);padding:.22rem .7rem;background:var(--bg3);border-radius:99px;border:1px solid var(--border);white-space:nowrap}
-.exp-list{list-style:none;margin-top:.2rem}.exp-list li{padding:.28rem 0;color:var(--text2);font-size:.85rem;padding-left:1.1rem;position:relative}.exp-list li::before{content:'›';position:absolute;left:0;color:var(--accent)}
-.current-badge{display:inline-block;padding:.2rem .65rem;border-radius:99px;background:var(--accent-dim);color:var(--accent);font-size:.65rem;font-weight:700;border:1px solid var(--accent-border);margin-left:.5rem;letter-spacing:.5px}
-.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.2rem}
-.proj-c{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;position:relative;overflow:hidden;transition:border-color .25s,transform .22s,box-shadow .22s}.proj-c:hover{border-color:rgba(59,130,246,.45);transform:translateY(-4px);box-shadow:0 12px 36px rgba(59,130,246,.12)}
-.proj-no{position:absolute;top:.7rem;right:1rem;font-size:3rem;font-weight:800;color:var(--border);line-height:1;user-select:none;transition:color .25s}.proj-c:hover .proj-no{color:rgba(59,130,246,.12)}
-.proj-icon{font-size:1.6rem;margin-bottom:.9rem}.proj-c h3{font-size:1rem;font-weight:700;margin-bottom:.4rem}.proj-c p{font-size:.83rem;color:var(--text2);margin-bottom:1.1rem;line-height:1.6}
-.certs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1rem}
-.cert-c{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.2rem 1.4rem;display:flex;gap:.9rem;align-items:flex-start;transition:border-color .25s,transform .18s}.cert-c:hover{border-color:var(--accent-border);transform:translateY(-2px)}
-.cert-ico{width:38px;height:38px;border-radius:9px;flex-shrink:0;background:linear-gradient(135deg,var(--accent),var(--blue));display:flex;align-items:center;justify-content:center;font-size:1rem}
-.cert-t{font-size:.88rem;font-weight:700;margin-bottom:.2rem}.cert-s{font-size:.74rem;color:var(--text2)}
-
-/* ── CONTACT SECTION ── */
-.contact-wrap{background:var(--bg2);border-top:1px solid var(--border)}
-.contact-inner{max-width:1180px;margin:0 auto;padding:clamp(3.5rem,8vh,6rem) clamp(1.2rem,5vw,4rem)}
-.contact-layout{display:grid;grid-template-columns:1fr 1.3fr;gap:3rem;align-items:start}
-@media(max-width:768px){.contact-layout{grid-template-columns:1fr}}
-
-/* contact info side */
-.contact-info-title{font-size:clamp(1.4rem,3vw,2rem);font-weight:800;letter-spacing:-1px;margin-bottom:2rem;line-height:1.2}
-.contact-info-title span{color:var(--accent)}
-.contact-items{display:flex;flex-direction:column;gap:1.2rem;margin-bottom:2rem}
-.contact-item{display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);transition:border-color .2s,box-shadow .2s}.contact-item:hover{border-color:var(--accent-border);box-shadow:0 4px 16px var(--glow)}
-.ci-ico{width:38px;height:38px;border-radius:9px;background:var(--accent-dim);border:1px solid var(--accent-border);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
-.ci-label{font-size:.65rem;color:var(--text2);text-transform:uppercase;letter-spacing:1.5px;font-weight:600}
-.ci-val{font-size:.85rem;font-weight:600;color:var(--text)}
-
-/* contact form */
-.contact-form-wrap{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2rem}
-.form-title{font-size:1.1rem;font-weight:700;margin-bottom:1.5rem;color:var(--text)}
-.form-group{margin-bottom:1.1rem}
-.form-group label{display:block;font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text2);margin-bottom:.45rem}
-.form-group input,.form-group textarea{width:100%;padding:.8rem 1rem;background:var(--bg3);border:1.5px solid var(--border);border-radius:10px;color:var(--text);font-family:'Inter',sans-serif;font-size:.88rem;outline:none;transition:border-color .2s,box-shadow .2s;resize:none}.form-group input:focus,.form-group textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-dim)}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-@media(max-width:500px){.form-row{grid-template-columns:1fr}}
-.form-group textarea{min-height:120px}
-
-.btn-send{width:100%;padding:.85rem 1.5rem;border-radius:10px;background:var(--accent);color:#000;font-family:'Inter',sans-serif;font-weight:700;font-size:.95rem;border:none;cursor:pointer;transition:transform .2s,box-shadow .2s,opacity .2s;box-shadow:0 0 20px var(--glow);margin-top:.5rem;display:flex;align-items:center;justify-content:center;gap:.6rem}.btn-send:hover{transform:translateY(-2px);box-shadow:0 8px 28px var(--glow)}.btn-send:active{transform:translateY(0)}.btn-send:disabled{opacity:.6;cursor:not-allowed;transform:none}
-
-/* toast notifications */
-.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(80px);background:var(--card);border:1px solid var(--border);border-radius:12px;padding:.85rem 1.6rem;font-size:.88rem;font-weight:600;z-index:500;transition:transform .35s cubic-bezier(.4,0,.2,1),opacity .35s;opacity:0;pointer-events:none;white-space:nowrap}
-.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
-.toast.success{border-color:var(--accent-border);color:var(--accent);background:var(--accent-dim)}
-.toast.error{border-color:rgba(239,68,68,.4);color:#f87171;background:rgba(239,68,68,.1)}
-
-footer{text-align:center;padding:1.8rem;color:var(--text2);font-size:.76rem;border-top:1px solid var(--border)}
-footer em{color:var(--accent);font-style:normal;font-weight:600}
-#scrollTop{position:fixed;bottom:1.6rem;right:1.6rem;z-index:300;width:44px;height:44px;border-radius:50%;background:var(--accent);color:#000;border:none;cursor:pointer;font-size:1rem;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px var(--glow);opacity:0;transform:translateY(10px);transition:opacity .28s,transform .28s;pointer-events:none}
-#scrollTop.show{opacity:1;transform:translateY(0);pointer-events:auto}#scrollTop:hover{transform:translateY(-2px)}
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.fi{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}.fi.vis{opacity:1;transform:translateY(0)}
-@media(max-width:768px){.nav-links,.btn-hire{display:none}.hamburger{display:flex}.hero-right{width:100%}.photo-wrap{max-width:260px;margin:0 auto}}
-@media(max-width:480px){.skills-grid,.proj-grid,.certs-grid{grid-template-columns:1fr}}
-</style>
+<link rel="stylesheet" href="static/css/sar.css">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 
+<canvas id="bgCanvas"></canvas>
 <div id="progress"></div>
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
 
 <!-- NAV -->
 <nav>
-  <div class="logo">SD<em>.</em></div>
+  <div class="logo">SD<span class="logo-dot">.</span></div>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
@@ -138,9 +28,9 @@ footer em{color:var(--accent);font-style:normal;font-weight:600}
     <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="nav-right">
-    <button class="toggle" id="themeToggle"></button>
-    <a href="#contact"><button class="btn-hire">Hire Me</button></a>
-    <button class="hamburger" id="menuBtn"><span></span><span></span><span></span></button>
+    <button class="toggle" id="themeToggle" aria-label="Toggle theme"></button>
+    <a href="#contact"><button class="btn-hire">Hire Me ↗</button></a>
+    <button class="hamburger" id="menuBtn" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
@@ -151,34 +41,40 @@ footer em{color:var(--accent);font-style:normal;font-weight:600}
   <a href="#projects" onclick="closeMob()">Projects</a>
   <a href="#certifications" onclick="closeMob()">Certifications</a>
   <a href="#contact" onclick="closeMob()">Contact</a>
-  <a href="#contact" onclick="closeMob()" style="color:var(--accent);font-weight:700">✉ Hire Me</a>
+  <a href="#contact" onclick="closeMob()" style="color:var(--accent);font-weight:800;margin-top:.6rem">✉ Hire Me ↗</a>
 </div>
 
 <!-- HERO -->
 <section id="hero">
   <div class="hero-left">
-    <div class="badge"><span class="dot"></span>Open to Work</div>
-    <h1 class="hero-name">Sarthak<br><span class="green">Deshmukh</span></h1>
+    <div class="badge"><span class="badge-dot"></span>Open to Work — Available Now</div>
+    <h1 class="hero-name">Sarthak<span class="outline">Deshmukh</span></h1>
     <p class="hero-role" id="typed"></p>
     <div class="hero-btns">
-      <a href="#contact"><button class="btn-main">Get In Touch</button></a>
-      <a href="#experience"><button class="btn-ghost">View Work ↓</button></a>
+      <a href="#contact"><button class="btn-main">Get In Touch →</button></a>
+      <a href="#projects"><button class="btn-ghost">View Projects ↓</button></a>
     </div>
     <div class="hero-stats">
-      <div><div class="stat-n">2+</div><div class="stat-l">Years Exp.</div></div>
-      <div><div class="stat-n">5+</div><div class="stat-l">Projects</div></div>
-      <div><div class="stat-n">3</div><div class="stat-l">Certifications</div></div>
+      <div><div class="stat-n" data-target="1" data-suffix="+">0</div><div class="stat-l">Years Exp.</div></div>
+      <div><div class="stat-n" data-target="5" data-suffix="+">0</div><div class="stat-l">Projects</div></div>
+      <div><div class="stat-n" data-target="3" data-suffix="">0</div><div class="stat-l">Certifications</div></div>
     </div>
   </div>
   <div class="hero-right">
     <div class="photo-wrap">
-      <div class="photo-badge">📍 Mumbai</div>
+      <div class="photo-ring"></div>
+      <div class="photo-ring2"></div>
+      <div class="photo-badge">📍 Mumbai, IN</div>
       <div class="photo-frame">
-        <img src="static\image\sarthak.png"/>
+        <img src="static/image/sarthak.png" alt="Sarthak Deshmukh"/>
         <div class="photo-overlay">
           <div class="ov-name">Sarthak Deshmukh</div>
           <div class="ov-loc">Python · Django · Full Stack</div>
         </div>
+      </div>
+      <div class="photo-status">
+        <span class="status-dot"></span>
+        <span style="font-size:.7rem;font-weight:600;font-family:var(--fm)">Available for hire</span>
       </div>
     </div>
   </div>
@@ -190,24 +86,24 @@ footer em{color:var(--accent);font-style:normal;font-weight:600}
   <span class="sec-eyebrow">Who I Am</span>
   <h2 class="sec-h">About Me</h2>
   <div class="sec-bar"></div>
-  <div class="about-grid fi">
-    <div class="card">
+  <div class="about-grid">
+    <div class="card fi">
       <div class="card-head">Quick Info</div>
       <div class="info-row"><span>Full Name</span><span>Sarthak Deshmukh</span></div>
       <div class="info-row"><span>Date of Birth</span><span>12th May 2004</span></div>
       <div class="info-row"><span>Location</span><span>Parel Village, Mumbai</span></div>
-      <div class="info-row"><span>Email</span><span>12sardeshmukh@gmail.com</span></div>
-      <div class="info-row"><span>Phone</span><span>+91 8454956683</span></div>
-      <div class="info-row"><span>LinkedIn</span><span><a href="https://linkedin.com/in/Sarthacks" target="_blank">Sarthacks</a></span></div>
+      <div class="info-row"><span>Email</span><span><a href="mailto:12sardeshmukh@gmail.com">12sardeshmukh@gmail.com</a></span></div>
+      <div class="info-row"><span>Phone</span><span><a href="tel:+918454956683">+91 8454956683</a></span></div>
+      <div class="info-row"><span>LinkedIn</span><span><a href="https://linkedin.com/in/Sarthacks" target="_blank" rel="noopener">Sarthacks ↗</a></span></div>
     </div>
-    <div class="card">
+    <div class="card fi">
       <div class="card-head">Education</div>
       <div class="info-row"><span>Degree</span><span>B.Sc. Information Technology</span></div>
       <div class="info-row"><span>College</span><span>Guru Nanak Khalsa, Matunga</span></div>
       <div class="info-row"><span>CGPI / Grade</span><span>6.43 — Grade B</span></div>
       <div class="info-row"><span>Year</span><span>2023 – 2025</span></div>
       <div class="info-row"><span>Languages</span><span>Marathi · Hindi · English</span></div>
-      <div class="card-head" style="margin-top:1.2rem">Soft Skills</div>
+      <div class="card-head" style="margin-top:1.3rem">Soft Skills</div>
       <div class="pills">
         <span class="pill">Analytical</span><span class="pill">Collaborator</span>
         <span class="pill">Supportive</span><span class="pill">Adaptable</span>
@@ -224,17 +120,17 @@ footer em{color:var(--accent);font-style:normal;font-weight:600}
   <h2 class="sec-h">Technical Skills</h2>
   <div class="sec-bar"></div>
   <div class="skills-grid">
-    <div class="skill-c fi"><div class="skill-ico">🐍</div><h4>Languages</h4>
+    <div class="skill-c fi"><span class="skill-ico">🐍</span><h4>Languages</h4>
       <div class="tags"><span class="tag g">Python</span><span class="tag">C</span><span class="tag">C++</span><span class="tag">Java</span></div></div>
-    <div class="skill-c fi"><div class="skill-ico">🌐</div><h4>Web Development</h4>
-      <div class="tags"><span class="tag g">Django</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Bootstrap</span><span class="tag">jQuery</span></div></div>
-    <div class="skill-c fi"><div class="skill-ico">🗄️</div><h4>Databases</h4>
+    <div class="skill-c fi"><span class="skill-ico">🌐</span><h4>Web Development</h4>
+      <div class="tags"><span class="tag g">Django</span><span class="tag b">HTML</span><span class="tag b">CSS</span><span class="tag">JavaScript</span><span class="tag">Bootstrap</span><span class="tag">jQuery</span></div></div>
+    <div class="skill-c fi"><span class="skill-ico">🗄️</span><h4>Databases</h4>
       <div class="tags"><span class="tag g">SQL</span><span class="tag">Data Management</span></div></div>
-    <div class="skill-c fi"><div class="skill-ico">⚙️</div><h4>Core Competencies</h4>
+    <div class="skill-c fi"><span class="skill-ico">⚙️</span><h4>Core Competencies</h4>
       <div class="tags"><span class="tag g">REST APIs</span><span class="tag">SDLC</span><span class="tag">Debugging</span><span class="tag">DSA</span><span class="tag">Version Control</span></div></div>
-    <div class="skill-c fi"><div class="skill-ico">🤖</div><h4>Machine Learning</h4>
-      <div class="tags"><span class="tag g">Random Forest</span><span class="tag">SVM</span><span class="tag">Gaussian NB</span><span class="tag">scikit-learn</span></div></div>
-    <div class="skill-c fi"><div class="skill-ico">🔍</div><h4>SEO & Performance</h4>
+    <div class="skill-c fi"><span class="skill-ico">🤖</span><h4>Machine Learning</h4>
+      <div class="tags"><span class="tag g">Random Forest</span><span class="tag">SVM</span><span class="tag">Gaussian NB</span><span class="tag b">scikit-learn</span></div></div>
+    <div class="skill-c fi"><span class="skill-ico">🔍</span><h4>SEO & Performance</h4>
       <div class="tags"><span class="tag g">Core Web Vitals</span><span class="tag">JSON-LD</span><span class="tag">OpenGraph</span><span class="tag">CKEditor</span></div></div>
   </div>
 </section>
@@ -246,47 +142,75 @@ footer em{color:var(--accent);font-style:normal;font-weight:600}
   <h2 class="sec-h">Work Experience</h2>
   <div class="sec-bar"></div>
   <div class="timeline">
+
     <div class="tl-item fi">
       <div class="exp-c">
         <div class="exp-top">
-          <div><div class="exp-role">Full Stack Python Developer <span class="current-badge">CURRENT</span></div><div class="exp-co">Shubham Tanks and Liners</div></div>
+          <div>
+            <div class="exp-role">Full Stack Python Developer <span class="current-badge">CURRENT</span></div>
+            <div class="exp-co">Shubham Tanks and Liners</div>
+          </div>
           <div class="exp-date">2024 – Present</div>
         </div>
         <ul class="exp-list">
           <li>Building and maintaining full stack web applications using Python and Django.</li>
           <li>Developing scalable backend services, REST APIs, and responsive frontend interfaces.</li>
-          <li>Collaborating with teams to deliver production-ready features on schedule.</li>
+          <li>Collaborating with cross-functional teams to deliver production-ready features on schedule.</li>
         </ul>
+        <!-- 🔗 REPLACE the href value with your actual Google Drive link -->
+        <a class="exp-cert-btn" href="YOUR_GOOGLE_DRIVE_LINK_SHUBHAM_CERT" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+          View Experience Certificate ↗
+        </a>
       </div>
     </div>
+
     <div class="tl-item fi">
       <div class="exp-c">
         <div class="exp-top">
-          <div><div class="exp-role">Full Stack Developer Intern</div><div class="exp-co">AdEngage</div></div>
+          <div>
+            <div class="exp-role">Full Stack Developer Intern</div>
+            <div class="exp-co">AdEngage</div>
+          </div>
           <div class="exp-date">Internship</div>
         </div>
         <ul class="exp-list">
-          <li>Key contributor to <strong>BookAwestruck</strong> — built REST APIs for admin panels & implemented calendar picker.</li>
+          <li>Key contributor to <strong>BookAwestruck</strong> — built REST APIs for admin panels & calendar picker.</li>
           <li>Developed reusable UI components and booking systems with HTML, CSS, Bootstrap, JS, jQuery, Django.</li>
           <li>Built advanced admin blog panel with CKEditor, SEO fields, schema markup, and media uploads.</li>
           <li>Implemented dynamic SEO — meta tags, JSON-LD, OpenGraph — improving site visibility.</li>
           <li>Optimized Core Web Vitals via script tuning, layout fixes, and media compression.</li>
           <li>Contributed to high-traffic sites: Orchid Hotels, IRA Hotels, Fort JadhavGADH, Toyam.</li>
         </ul>
+        <!-- 🔗 REPLACE the href value with your actual Google Drive link -->
+        <a class="exp-cert-btn" href="YOUR_GOOGLE_DRIVE_LINK_ADENGAGE_CERT" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+          View Internship Certificate ↗
+        </a>
       </div>
     </div>
+
     <div class="tl-item fi">
       <div class="exp-c">
         <div class="exp-top">
-          <div><div class="exp-role">Python Intern</div><div class="exp-co">Online Technology</div></div>
+          <div>
+            <div class="exp-role">Python Intern</div>
+            <div class="exp-co">Online Technology</div>
+          </div>
           <div class="exp-date">2 Months</div>
         </div>
         <ul class="exp-list">
           <li>Completed intensive 2-month internship covering Python and web development fundamentals.</li>
           <li>Gained hands-on exposure to real-world workflows and project delivery.</li>
         </ul>
+        <!-- 🔗 REPLACE the href value with your actual Google Drive link -->
+        <a class="exp-cert-btn" href="YOUR_GOOGLE_DRIVE_LINK_ONLINETECH_CERT" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+          View Internship Certificate ↗
+        </a>
       </div>
     </div>
+
   </div>
 </section>
 <div class="divider"></div>
@@ -297,24 +221,74 @@ footer em{color:var(--accent);font-style:normal;font-weight:600}
   <h2 class="sec-h">Projects</h2>
   <div class="sec-bar"></div>
   <div class="proj-grid">
+
     <div class="proj-c fi">
-      <div class="proj-no">01</div><div class="proj-icon">🏥</div>
+      <div class="proj-no">01</div>
+      <span class="proj-icon">🏥</span>
       <h3>AI-Powered Health Advisor</h3>
-      <p>Predicts illnesses from symptoms using ML models with confidence scores and interactive Django interface.</p>
-      <div class="tags"><span class="tag g">Python</span><span class="tag g">Django</span><span class="tag">Random Forest</span><span class="tag">SVM</span><span class="tag">Gaussian NB</span></div>
+      <p>Predicts illnesses from symptoms using ML models with confidence scores. Combines Random Forest, SVM & Gaussian NB for accuracy inside an interactive Django interface.</p>
+      <div class="tags" style="margin-bottom:1.3rem">
+        <span class="tag g">Python</span><span class="tag g">Django</span>
+        <span class="tag">Random Forest</span><span class="tag">SVM</span><span class="tag">Gaussian NB</span>
+      </div>
+      <div class="proj-actions">
+        <!-- 🔗 REPLACE with your GitHub link -->
+        <a class="proj-btn gh" href="YOUR_GITHUB_HEALTH_ADVISOR" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub ↗
+        </a>
+        <!-- 🔗 REPLACE with your live demo link -->
+        <a class="proj-btn live" href="YOUR_LIVE_HEALTH_ADVISOR" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Live Demo ↗
+        </a>
+      </div>
     </div>
+
     <div class="proj-c fi">
-      <div class="proj-no">02</div><div class="proj-icon">📅</div>
+      <div class="proj-no">02</div>
+      <span class="proj-icon">📅</span>
       <h3>BookAwestruck Platform</h3>
-      <p>High-traffic booking platform with REST APIs, admin panels, calendar systems, and full SEO optimization.</p>
-      <div class="tags"><span class="tag g">Django</span><span class="tag g">REST APIs</span><span class="tag">Bootstrap</span><span class="tag">jQuery</span><span class="tag">SEO</span></div>
+      <p>High-traffic booking platform with REST APIs, admin panels, calendar systems, and full SEO optimization. Serves real users across multiple hospitality brands.</p>
+      <div class="tags" style="margin-bottom:1.3rem">
+        <span class="tag g">Django</span><span class="tag g">REST APIs</span>
+        <span class="tag">Bootstrap</span><span class="tag">jQuery</span><span class="tag">SEO</span>
+      </div>
+      <div class="proj-actions">
+        <!-- 🔗 REPLACE with your GitHub link -->
+        <a class="proj-btn gh" href="YOUR_GITHUB_BOOKAWESTRUCK" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub ↗
+        </a>
+        <a class="proj-btn live" href="https://bookawestruck.com" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Visit Site ↗
+        </a>
+      </div>
     </div>
+
     <div class="proj-c fi">
-      <div class="proj-no">03</div><div class="proj-icon">🏨</div>
+      <div class="proj-no">03</div>
+      <span class="proj-icon">🏨</span>
       <h3>Hospitality Websites</h3>
-      <p>Optimized web properties for Orchid Hotels, IRA Hotels, Fort JadhavGADH & Toyam for Core Web Vitals compliance.</p>
-      <div class="tags"><span class="tag g">HTML/CSS/JS</span><span class="tag">SEO</span><span class="tag">Performance</span><span class="tag">Django</span></div>
+      <p>Optimized web properties for Orchid Hotels, IRA Hotels, Fort JadhavGADH & Toyam — Core Web Vitals, SEO, and performance for real high-traffic hospitality sites.</p>
+      <div class="tags" style="margin-bottom:1.3rem">
+        <span class="tag g">HTML/CSS/JS</span><span class="tag">SEO</span>
+        <span class="tag">Performance</span><span class="tag g">Django</span>
+      </div>
+      <div class="proj-actions">
+        <a class="proj-btn live" href="https://theorchidhotel.com" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Orchid Hotels ↗
+        </a>
+        <!-- 🔗 REPLACE with your GitHub link -->
+        <a class="proj-btn gh" href="YOUR_GITHUB_HOSPITALITY" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub ↗
+        </a>
+      </div>
     </div>
+
   </div>
 </section>
 <div class="divider"></div>
@@ -325,9 +299,52 @@ footer em{color:var(--accent);font-style:normal;font-weight:600}
   <h2 class="sec-h">Certifications</h2>
   <div class="sec-bar"></div>
   <div class="certs-grid">
-    <div class="cert-c fi"><div class="cert-ico">📊</div><div><div class="cert-t">Data Visualization</div><div class="cert-s">Proficiency in data visualization and presentation.</div></div></div>
-    <div class="cert-c fi"><div class="cert-ico">🐍</div><div><div class="cert-t">Full Stack Python</div><div class="cert-s">Keerti Institute, Dadar — Advanced Python & Web Dev</div></div></div>
-    <div class="cert-c fi"><div class="cert-ico">🏅</div><div><div class="cert-t">Internship Certificate</div><div class="cert-s">Online Technology — 2-Month Python Internship</div></div></div>
+
+    <div class="cert-c fi">
+      <div class="cert-top">
+        <div class="cert-ico">📊</div>
+        <div>
+          <div class="cert-t">Data Visualization</div>
+          <div class="cert-s">Proficiency in data visualization and analytical presentation of complex datasets.</div>
+        </div>
+      </div>
+      <!-- 🔗 REPLACE href with your Google Drive certificate link -->
+      <a class="cert-view-btn" href="YOUR_GOOGLE_DRIVE_DATA_VIZ_CERT" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+        View Certificate ↗
+      </a>
+    </div>
+
+    <div class="cert-c fi">
+      <div class="cert-top">
+        <div class="cert-ico">🐍</div>
+        <div>
+          <div class="cert-t">Full Stack Python</div>
+          <div class="cert-s">Keerti Institute, Dadar — Advanced Python & Full Stack Web Development course.</div>
+        </div>
+      </div>
+      <!-- 🔗 REPLACE href with your Google Drive certificate link -->
+      <a class="cert-view-btn" href="YOUR_GOOGLE_DRIVE_FULLSTACK_CERT" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+        View Certificate ↗
+      </a>
+    </div>
+
+    <div class="cert-c fi">
+      <div class="cert-top">
+        <div class="cert-ico">🏅</div>
+        <div>
+          <div class="cert-t">Python Internship</div>
+          <div class="cert-s">Online Technology — 2-Month intensive Python internship completion certificate.</div>
+        </div>
+      </div>
+      <!-- 🔗 REPLACE href with your Google Drive certificate link -->
+      <a class="cert-view-btn" href="YOUR_GOOGLE_DRIVE_INTERNSHIP_CERT" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+        View Certificate ↗
+      </a>
+    </div>
+
   </div>
 </section>
 <div class="divider"></div>
@@ -337,10 +354,8 @@ footer em{color:var(--accent);font-style:normal;font-weight:600}
   <div class="contact-inner">
     <span class="sec-eyebrow">Let's Connect</span>
     <h2 class="sec-h">Get In Touch</h2>
-    <p class="sec-sub">Open to Python / Full Stack Developer roles. Drop me a message and I'll get back to you!</p>
-
+    <p class="sec-sub">Open to Python / Full Stack Developer roles. Drop me a message and I'll get back to you within 24 hours!</p>
     <div class="contact-layout">
-      <!-- Left: info -->
       <div>
         <p class="contact-info-title">Let's build something <span>great together</span></p>
         <div class="contact-items fi">
@@ -352,7 +367,7 @@ footer em{color:var(--accent);font-style:normal;font-weight:600}
             <div class="ci-ico">📱</div>
             <div><div class="ci-label">Phone</div><div class="ci-val">+91 8454956683</div></div>
           </a>
-          <a href="https://linkedin.com/in/Sarthacks" target="_blank" class="contact-item">
+          <a href="https://linkedin.com/in/Sarthacks" target="_blank" rel="noopener" class="contact-item">
             <div class="ci-ico">💼</div>
             <div><div class="ci-label">LinkedIn</div><div class="ci-val">linkedin.com/in/Sarthacks</div></div>
           </a>
@@ -362,8 +377,6 @@ footer em{color:var(--accent);font-style:normal;font-weight:600}
           </div>
         </div>
       </div>
-
-      <!-- Right: form -->
       <div class="contact-form-wrap fi">
         <div class="form-title">✉️ Send me a message</div>
         <form id="contactForm" novalidate>
@@ -395,151 +408,19 @@ footer em{color:var(--accent);font-style:normal;font-weight:600}
   </div>
 </div>
 
-<footer>Made with ❤️ by <em>Sarthak Deshmukh</em> · Python & Full Stack Developer · Mumbai</footer>
-<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<footer>
+  <div class="footer-links">
+    <a href="#about">About</a><a href="#skills">Skills</a>
+    <a href="#experience">Experience</a><a href="#projects">Projects</a>
+    <a href="#certifications">Certifications</a>
+    <a href="mailto:12sardeshmukh@gmail.com">Email</a>
+    <a href="https://linkedin.com/in/Sarthacks" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+  Made with ❤️ by <em>Sarthak Deshmukh</em> · Python & Full Stack Developer · Mumbai
+</footer>
 
-<!-- Toast notification -->
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">↑</button>
 <div class="toast" id="toast"></div>
-
-<script>
-// ── EMAILJS INIT
-// ⚠️ Replace these with your actual EmailJS credentials:
-// 1. Sign up at https://www.emailjs.com (free — 200 emails/month)
-// 2. Create a Service (Gmail) → copy Service ID
-// 3. Create a Template → copy Template ID
-// 4. Go to Account → copy Public Key
-(function(){
-  emailjs.init({ publicKey: "p7W3nx5dQDD9WC47n" });
-})();
-
-const EMAILJS_SERVICE_ID  = "service_7c2j55c";
-const EMAILJS_TEMPLATE_ID = "template_bwzpi5r";
-
-// ── CONTACT FORM
-document.getElementById('contactForm').addEventListener('submit', async function(e){
-  e.preventDefault();
-  const btn     = document.getElementById('sendBtn');
-  const btnText = document.getElementById('btnText');
-  const btnIcon = document.getElementById('btnIcon');
-
-  // Basic validation
-  const name    = document.getElementById('from_name').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const subject = document.getElementById('subject').value.trim();
-  const message = document.getElementById('message').value.trim();
-
-  if(!name||!email||!subject||!message){
-    showToast('Please fill in all fields.','error'); return;
-  }
-  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
-    showToast('Please enter a valid email address.','error'); return;
-  }
-
-  // Loading state
-  btn.disabled=true; btnText.textContent='Sending...'; btnIcon.textContent='⏳';
-
-  try {
-    // 1️⃣ Send email to YOU
-    await emailjs.sendForm(
-    EMAILJS_SERVICE_ID,
-    "template_bwzpi5r",   // Contact Us template
-    this
-    );
-
-    // 2️⃣ Send AUTO REPLY to USER
-    await emailjs.send(
-    EMAILJS_SERVICE_ID,
-    "template_plkqyps",   // Auto-reply template
-    {
-        from_name: name,
-        email: email,
-        subject: subject,
-        message: message
-    }
-    );
-    showToast('✅ Message sent! I\'ll get back to you soon.','success');
-    this.reset();
-  } catch(err) {
-    console.error('EmailJS error:', err);
-    showToast('❌ Failed to send. Please email me directly.','error');
-  } finally {
-    btn.disabled=false; btnText.textContent='Send Message'; btnIcon.textContent='→';
-  }
-});
-
-function showToast(msg, type){
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.className = 'toast ' + type;
-  // Trigger reflow then show
-  t.offsetHeight;
-  t.classList.add('show');
-  setTimeout(()=>{ t.classList.remove('show') }, 4000);
-}
-
-// ── THEME
-const root=document.documentElement;
-const saved=localStorage.getItem('sdTheme')||'dark';
-root.setAttribute('data-theme',saved);
-document.getElementById('themeToggle').addEventListener('click',()=>{
-  const n=root.getAttribute('data-theme')==='dark'?'light':'dark';
-  root.setAttribute('data-theme',n); localStorage.setItem('sdTheme',n);
-});
-
-// ── MOBILE NAV
-const menuBtn=document.getElementById('menuBtn');
-const mobileNav=document.getElementById('mobileNav');
-menuBtn.addEventListener('click',()=>mobileNav.classList.toggle('open'));
-function closeMob(){mobileNav.classList.remove('open')}
-
-// ── PROGRESS BAR
-const prog=document.getElementById('progress');
-window.addEventListener('scroll',()=>{
-  const t=document.documentElement.scrollTop;
-  const h=document.documentElement.scrollHeight-window.innerHeight;
-  prog.style.width=(t/h*100)+'%';
-});
-
-// ── SCROLL TOP
-const st=document.getElementById('scrollTop');
-window.addEventListener('scroll',()=>st.classList.toggle('show',window.scrollY>380));
-
-// ── TYPED TEXT
-const words=['Python / Full Stack Developer','Django REST API Engineer','Web Performance Optimizer','ML Application Developer'];
-let wi=0,ci=0,del=false;
-const tel=document.getElementById('typed');
-function type(){
-  const w=words[wi];
-  if(!del){tel.innerHTML=w.slice(0,ci+1)+'<span class="cursor-blink"></span>';ci++;
-    if(ci===w.length){del=true;setTimeout(type,1800);return}}
-  else{tel.innerHTML=w.slice(0,ci-1)+'<span class="cursor-blink"></span>';ci--;
-    if(ci===0){del=false;wi=(wi+1)%words.length}}
-  setTimeout(type,del?50:72);
-}
-type();
-
-// ── SCROLL REVEAL
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target)}});
-},{threshold:.1});
-document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
-
-// ── NAV ACTIVE
-const secs=document.querySelectorAll('section[id],[id]');
-const links=document.querySelectorAll('.nav-links a,.mobile-nav a');
-const spy=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      links.forEach(l=>{
-        if(l.getAttribute('href')==='#'+e.target.id)l.classList.add('active');
-        else l.classList.remove('active');
-      });
-    }
-  });
-},{rootMargin:'-40% 0px -55% 0px'});
-secs.forEach(s=>spy.observe(s));
-</script>
+<script src="static/js/sar.js"></script>
 </body>
 </html>
-
-
